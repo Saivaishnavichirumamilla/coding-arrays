@@ -27,3 +27,34 @@ public:
         return count;
     }
 };
+
+
+This can also be done in the follwing way in O(n) time.
+    BY USING HASHING TECHNIQUE.
+    
+    
+    
+    class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        
+        unordered_map<int,int>map;
+        int n=nums.size();
+        int sum=0,count=0;
+        map[0]=1;
+        for(int i=0;i<n;i++)
+        {
+            sum+=nums[i];
+            
+                
+            
+            
+            if(map.find(sum-k)!=map.end())
+            {
+              count+=map[sum-k];  
+            }
+            map[sum]++;
+        }
+        return count;
+    }
+};
